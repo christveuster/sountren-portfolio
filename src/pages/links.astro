@@ -1,0 +1,227 @@
+---
+import '../styles/global.css';
+
+const links = [
+  { number: '01', label: 'Instagram', detail: 'christveuster', href: 'https://www.instagram.com/christveuster', external: true },
+  { number: '02', label: 'YouTube', detail: '@ChristianMDDV', href: 'https://www.youtube.com/@ChristianMDDV', external: true },
+  { number: '03', label: 'LinkedIn', detail: 'Christian Michael', href: 'https://www.linkedin.com/in/christian-michael-02b7a7404', external: true },
+  { number: '04', label: 'GitHub', detail: 'christveuster', href: 'https://github.com/christveuster', external: true },
+  { number: '05', label: 'Email', detail: 'damianveuster27@gmail.com', href: 'mailto:damianveuster27@gmail.com', external: false },
+  { number: '06', label: 'Portfolio website', detail: 'Back to the main page', href: '/', external: false },
+];
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f0f2eb" />
+    <meta name="description" content="Social profiles and portfolio links for Christian Michael, known as Sountren." />
+    <title>Links — Christian Michael / Sountren</title>
+  </head>
+  <body>
+    <main class="links-page">
+      <header class="links-header">
+        <a class="links-wordmark" href="/" aria-label="Back to portfolio">CM /</a>
+        <span>Personal directory / 2026</span>
+      </header>
+
+      <section class="links-profile" aria-labelledby="links-title">
+        <div class="links-monogram" aria-hidden="true">S.</div>
+        <p class="links-eyebrow">Christian Michael / Sountren</p>
+        <h1 id="links-title">Find me<br />around the web.</h1>
+        <p class="links-bio">Computer Science student at Universitas Indraprasta PGRI. Interested in web development, Python, C++, and generative AI.</p>
+      </section>
+
+      <nav class="links-list" aria-label="Social profiles and website">
+        {links.map((link) => (
+          <a
+            class="profile-link"
+            href={link.href}
+            target={link.external ? '_blank' : undefined}
+            rel={link.external ? 'noopener noreferrer' : undefined}
+          >
+            <span class="profile-link__number">{link.number}</span>
+            <span class="profile-link__copy">
+              <strong>{link.label}</strong>
+              <span>{link.detail}</span>
+            </span>
+            <span class="profile-link__arrow" aria-hidden="true">{link.external ? '↗' : '→'}</span>
+          </a>
+        ))}
+      </nav>
+
+      <footer class="links-footer">
+        <span>Computer Science / Class of ’27</span>
+        <a href="/">Return to portfolio</a>
+      </footer>
+    </main>
+  </body>
+</html>
+
+<style>
+  .links-page {
+    width: min(100% - 48px, 650px);
+    min-height: 100vh;
+    margin-inline: auto;
+    padding: 26px 0 24px;
+  }
+
+  .links-header,
+  .links-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    color: var(--muted);
+    font-family: var(--mono);
+    font-size: 10px;
+    line-height: 1.6;
+    text-transform: uppercase;
+  }
+
+  .links-header {
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .links-wordmark {
+    color: var(--rust);
+    font-weight: 700;
+    text-decoration: none;
+  }
+
+  .links-profile {
+    padding: 48px 0 28px;
+  }
+
+  .links-monogram {
+    display: grid;
+    width: 58px;
+    aspect-ratio: 1;
+    place-items: center;
+    border: 1px solid var(--ink);
+    border-radius: 50%;
+    color: var(--ink);
+    font-family: var(--serif);
+    font-size: 28px;
+  }
+
+  .links-eyebrow {
+    margin: 24px 0 12px;
+    color: var(--rust);
+    font-family: var(--mono);
+    font-size: 10px;
+    line-height: 1.6;
+    text-transform: uppercase;
+  }
+
+  h1 {
+    margin: 0;
+    color: var(--ink);
+    font-family: var(--serif);
+    font-size: 58px;
+    font-weight: 400;
+    line-height: 0.98;
+  }
+
+  .links-bio {
+    max-width: 480px;
+    margin: 18px 0 0;
+    color: var(--muted);
+    font-family: var(--mono);
+    font-size: 12px;
+    line-height: 1.8;
+  }
+
+  .links-list {
+    border-top: 1px solid var(--line);
+  }
+
+  .profile-link {
+    display: grid;
+    min-height: 76px;
+    grid-template-columns: 42px minmax(0, 1fr) 20px;
+    gap: 16px;
+    align-items: center;
+    border-bottom: 1px solid var(--line);
+    color: var(--ink);
+    text-decoration: none;
+    transition: background-color 150ms ease, padding 150ms ease;
+  }
+
+  .profile-link:hover {
+    padding-inline: 10px;
+    background: #e7eae1;
+  }
+
+  .profile-link__number {
+    color: var(--rust);
+    font-family: var(--mono);
+    font-size: 10px;
+  }
+
+  .profile-link__copy {
+    display: grid;
+    gap: 5px;
+  }
+
+  .profile-link__copy strong {
+    font-family: var(--serif);
+    font-size: 22px;
+    font-weight: 400;
+  }
+
+  .profile-link__copy span {
+    color: var(--muted);
+    font-family: var(--mono);
+    font-size: 10px;
+    line-height: 1.5;
+  }
+
+  .profile-link__arrow {
+    color: var(--rust);
+    font-size: 15px;
+  }
+
+  .links-footer {
+    flex-wrap: wrap;
+    padding-top: 18px;
+  }
+
+  .links-footer a {
+    text-decoration-color: var(--rust);
+    text-underline-offset: 4px;
+  }
+
+  @media (max-width: 480px) {
+    .links-page {
+      width: calc(100% - 36px);
+    }
+
+    .links-header,
+    .links-footer {
+      font-size: 9px;
+    }
+
+    .links-profile {
+      padding-top: 38px;
+    }
+
+    h1 {
+      font-size: 48px;
+    }
+
+    .profile-link {
+      grid-template-columns: 30px minmax(0, 1fr) 20px;
+      gap: 10px;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .profile-link {
+      transition: none;
+    }
+  }
+</style>

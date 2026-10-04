@@ -1,0 +1,317 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#111713" />
+    <meta
+      name="description"
+      content="This page could not be found. Return to Christian Michael's portfolio."
+    />
+    <title>404 — Christian Michael / Sountren</title>
+  </head>
+  <body>
+    <div class="screen">
+      <header class="masthead">
+        <a class="wordmark" href="/" aria-label="Christian Michael's portfolio home">CM /</a>
+        <p class="edition">Computer Science student / Portfolio</p>
+        <p class="status"><span aria-hidden="true"></span> SYSTEM ONLINE</p>
+      </header>
+
+      <main id="main-content">
+        <div class="eyebrow"><span>ERROR REPORT</span><span>NO. 004</span></div>
+        <section class="message" aria-labelledby="page-title">
+          <p class="overline">The requested address returned no signal.</p>
+          <h1 id="page-title">Page not<br />found<span class="period">.</span></h1>
+          <div class="details">
+            <p class="code" aria-label="Error code 404">404<span>/</span>NOT FOUND</p>
+            <p class="description">
+              This route isn't part of the current build. The work is still here,
+              just not at this address.
+            </p>
+          </div>
+          <a class="home-link" href="/">
+            <span class="arrow" aria-hidden="true">←</span>
+            <span>Return to index</span>
+            <span class="link-note">/ home</span>
+          </a>
+        </section>
+        <div class="bottomline" aria-hidden="true">
+          <span>END OF TRANSMISSION</span>
+          <span>CHRISTIAN MICHAEL / SOUNTREN</span>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>
+
+<style>
+  :global(*) {
+    box-sizing: border-box;
+  }
+
+  :global(html) {
+    min-width: 320px;
+    min-height: 100%;
+    background: #111713;
+  }
+
+  :global(body) {
+    min-height: 100vh;
+    margin: 0;
+    color: #e5e8d8;
+    background: #111713;
+    font-family: ui-monospace, "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  :global(body)::before {
+    position: fixed;
+    z-index: 2;
+    pointer-events: none;
+    content: "";
+    inset: 0;
+    opacity: 0.13;
+    background: repeating-linear-gradient(
+      to bottom,
+      transparent 0,
+      transparent 3px,
+      rgba(0, 0, 0, 0.5) 4px
+    );
+  }
+
+  .screen {
+    position: relative;
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    padding: 28px 5.5vw 24px;
+    overflow: hidden;
+    border: 1px solid #344238;
+    outline: 7px solid #0b100d;
+    outline-offset: -8px;
+  }
+
+  .masthead,
+  .bottomline {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+  }
+
+  .masthead {
+    min-height: 36px;
+    border-bottom: 1px solid #344238;
+    padding-bottom: 18px;
+  }
+
+  .wordmark {
+    color: #c9e59a;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-decoration: none;
+  }
+
+  .edition,
+  .status,
+  .bottomline,
+  .eyebrow,
+  .overline,
+  .code,
+  .link-note {
+    margin: 0;
+    font-size: 10px;
+    line-height: 1.6;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .edition {
+    color: #9da99b;
+  }
+
+  .status {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    color: #c9e59a;
+  }
+
+  .status span {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #c9e59a;
+    box-shadow: 0 0 8px rgba(201, 229, 154, 0.45);
+  }
+
+  main {
+    display: flex;
+    width: min(100%, 1150px);
+    flex: 1;
+    flex-direction: column;
+    align-self: center;
+    justify-content: center;
+    padding: 60px 0 54px;
+  }
+
+  .eyebrow {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #344238;
+    color: #a8b3a2;
+  }
+
+  .message {
+    width: min(100%, 780px);
+    padding: clamp(42px, 9vh, 92px) 0 clamp(48px, 10vh, 100px);
+  }
+
+  .overline {
+    margin-bottom: 22px;
+    color: #d0a466;
+  }
+
+  h1 {
+    margin: 0;
+    color: #e5e8d8;
+    font-family: Iowan Old Style, "Palatino Linotype", "Book Antiqua", Georgia, serif;
+    font-size: 92px;
+    font-weight: 400;
+    line-height: 0.91;
+  }
+
+  .period {
+    color: #c9e59a;
+  }
+
+  .details {
+    display: grid;
+    grid-template-columns: minmax(145px, 0.72fr) minmax(0, 1.28fr);
+    gap: 24px;
+    align-items: start;
+    max-width: 600px;
+    margin-top: 38px;
+    padding-top: 16px;
+    border-top: 1px solid #344238;
+  }
+
+  .code {
+    color: #c9e59a;
+    white-space: nowrap;
+  }
+
+  .code span {
+    padding: 0 7px;
+    color: #687768;
+  }
+
+  .description {
+    max-width: 360px;
+    margin: 0;
+    color: #a8b3a2;
+    font-size: 13px;
+    line-height: 1.8;
+  }
+
+  .home-link {
+    display: inline-flex;
+    width: fit-content;
+    align-items: center;
+    gap: 13px;
+    margin-top: 38px;
+    padding: 12px 0;
+    color: #e5e8d8;
+    font-size: 12px;
+    text-decoration: none;
+    border-bottom: 1px solid #c9e59a;
+    transition: color 160ms ease, border-color 160ms ease;
+  }
+
+  .home-link:hover {
+    color: #c9e59a;
+    border-color: #d0a466;
+  }
+
+  .home-link:focus-visible,
+  .wordmark:focus-visible {
+    outline: 2px solid #d0a466;
+    outline-offset: 5px;
+  }
+
+  .arrow {
+    color: #c9e59a;
+    font-size: 17px;
+    line-height: 1;
+  }
+
+  .link-note {
+    margin-left: 9px;
+    color: #748174;
+  }
+
+  .bottomline {
+    padding-top: 14px;
+    border-top: 1px solid #344238;
+    color: #748174;
+    font-size: 9px;
+  }
+
+  @media (max-width: 600px) {
+    .screen {
+      padding: 20px 22px 18px;
+    }
+
+    .masthead {
+      flex-wrap: wrap;
+      gap: 10px 16px;
+      padding-bottom: 14px;
+    }
+
+    .edition {
+      order: 3;
+      width: 100%;
+    }
+
+    main {
+      padding: 48px 0 30px;
+    }
+
+    .message {
+      padding: 58px 0 68px;
+    }
+
+    h1 {
+      font-size: 60px;
+    }
+
+    .details {
+      grid-template-columns: 1fr;
+      gap: 12px;
+      margin-top: 30px;
+    }
+
+    .home-link {
+      margin-top: 28px;
+    }
+
+    .bottomline {
+      align-items: flex-start;
+      font-size: 8px;
+    }
+
+    .bottomline span:last-child {
+      max-width: 132px;
+      text-align: right;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .home-link {
+      transition: none;
+    }
+  }
+</style>
