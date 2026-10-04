@@ -13,28 +13,18 @@ The portfolio identifies Christian Michael as Sountren and includes the supplied
 - `npm run dev` starts the development server.
 - `npm run check` checks the project.
 - `npm run build` creates the production build.
+- `npm run deploy` deploys the existing Cloudflare Worker after building.
 - `npm run preview` previews the production build.
 
-## Cloudflare Pages
+## Cloudflare Workers
 
-1. Create an empty repository at [github.com/new](https://github.com/new), for example `sountren-portfolio`. Do not add a README, license, or `.gitignore` there.
-2. In this project folder, initialize Git and push the site. Replace the remote URL if you chose a different repository name:
+The existing Worker is deployed from GitHub with Workers Builds. `wrangler.jsonc` serves Astro's `dist/` output as static assets on `sountren-portfolio.damianveuster27.workers.dev` and returns `dist/404.html` for unknown routes. It is an assets-only Worker and does not need the Astro Cloudflare SSR adapter.
 
-	```sh
-	git init
-	git add .
-	git commit -m "Create portfolio site"
-	git branch -M main
-	git remote add origin https://github.com/christveuster/sountren-portfolio.git
-	git push -u origin main
-	```
+Workers Builds should use:
 
-3. Open the [Cloudflare dashboard](https://dash.cloudflare.com/80d9a3716eec3f821dbdeb468cf0848c/home).
-4. Go to **Workers & Pages** and select **Create application**.
-5. Choose **Pages**, then **Import an existing Git repository**.
-6. Connect or authorize GitHub, choose `sountren-portfolio`, and select **Begin setup**.
-7. Set the production branch to `main`, the build command to `npm run build`, and the build output directory to `dist`. Leave the root directory at `/`.
-8. Select **Save and Deploy**. When the first deployment finishes, open the assigned `*.pages.dev` URL.
-9. Check the homepage, `/links`, and an unknown path (for the custom 404). Future pushes to `main` trigger deployments. Configure a custom domain from the Pages project settings if you have one.
+- Build command: `npm run build`
+- Deploy command: `npx wrangler deploy` (or `npm run deploy`)
+- Root directory: `/`
+- Node.js: 22.19 or newer
 
-This is a static Astro build and does not need the Cloudflare SSR adapter. Astro writes the custom not-found page to `dist/404.html` for Cloudflare Pages to serve on unknown paths.
+Push commits to `main` to trigger deployments. After a deployment, check `/`, `/links`, and an unknown path to verify the home page, link hub, and custom 404.
