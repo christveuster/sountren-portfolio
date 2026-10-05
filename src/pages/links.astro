@@ -1,13 +1,14 @@
 ---
+import { Icon } from 'astro-icon/components';
 import '../styles/global.css';
 
 const links = [
-  { number: '01', label: 'Instagram', detail: 'christveuster', href: 'https://www.instagram.com/christveuster', external: true },
-  { number: '02', label: 'YouTube', detail: '@ChristianMDDV', href: 'https://www.youtube.com/@ChristianMDDV', external: true },
-  { number: '03', label: 'LinkedIn', detail: 'Christian Michael', href: 'https://www.linkedin.com/in/christian-michael-02b7a7404', external: true },
-  { number: '04', label: 'GitHub', detail: 'christveuster', href: 'https://github.com/christveuster', external: true },
-  { number: '05', label: 'Email', detail: 'damianveuster27@gmail.com', href: 'mailto:damianveuster27@gmail.com', external: false },
-  { number: '06', label: 'Portfolio website', detail: 'Back to the main page', href: '/', external: false },
+  { number: '01', label: 'Instagram', detail: 'christveuster', href: 'https://www.instagram.com/christveuster', external: true, icon: 'simple-icons:instagram' },
+  { number: '02', label: 'YouTube', detail: '@ChristianMDDV', href: 'https://www.youtube.com/@ChristianMDDV', external: true, icon: 'simple-icons:youtube' },
+  { number: '03', label: 'LinkedIn', detail: 'Christian Michael', href: 'https://www.linkedin.com/in/christian-michael-02b7a7404', external: true, icon: 'simple-icons:linkedin' },
+  { number: '04', label: 'GitHub', detail: 'christveuster', href: 'https://github.com/christveuster', external: true, icon: 'simple-icons:github' },
+  { number: '05', label: 'Email', detail: 'damianveuster27@gmail.com', href: 'mailto:damianveuster27@gmail.com', external: false, icon: '' },
+  { number: '06', label: 'Portfolio website', detail: 'Back to the main page', href: '/', external: false, icon: '' },
 ];
 ---
 
@@ -28,7 +29,9 @@ const links = [
       </header>
 
       <section class="links-profile" aria-labelledby="links-title">
-        <div class="links-monogram" aria-hidden="true">S.</div>
+        <div class="links-photo">
+          <img src="/images/profile-placeholder.svg" alt="Profile photo placeholder" width="72" height="72" />
+        </div>
         <p class="links-eyebrow">Christian Michael / Sountren</p>
         <h1 id="links-title">Find me<br />around the web.</h1>
         <p class="links-bio">Computer Science student at Universitas Indraprasta PGRI. Interested in web development, Python, C++, and generative AI.</p>
@@ -42,7 +45,7 @@ const links = [
             target={link.external ? '_blank' : undefined}
             rel={link.external ? 'noopener noreferrer' : undefined}
           >
-            <span class="profile-link__number">{link.number}</span>
+            {link.icon ? <Icon name={link.icon} class="profile-link__icon" size={20} aria-hidden="true" /> : <span class="profile-link__number">{link.number}</span>}
             <span class="profile-link__copy">
               <strong>{link.label}</strong>
               <span>{link.detail}</span>
@@ -96,16 +99,20 @@ const links = [
     padding: 48px 0 28px;
   }
 
-  .links-monogram {
-    display: grid;
-    width: 58px;
+  .links-photo {
+    width: 64px;
     aspect-ratio: 1;
-    place-items: center;
-    border: 1px solid var(--ink);
+    overflow: hidden;
+    border: 1px solid var(--line);
     border-radius: 50%;
-    color: var(--ink);
-    font-family: var(--serif);
-    font-size: 28px;
+    background: #e7eae1;
+  }
+
+  .links-photo img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 
   .links-eyebrow {
@@ -160,6 +167,14 @@ const links = [
     color: var(--rust);
     font-family: var(--mono);
     font-size: 10px;
+  }
+
+  .profile-link__icon {
+    width: 20px;
+    height: 20px;
+    justify-self: center;
+    color: var(--rust);
+    fill: currentColor;
   }
 
   .profile-link__copy {

@@ -1,0 +1,41 @@
+{
+  "categories": [
+    {
+      "id": "languages",
+      "title": "Programming languages",
+      "skills": [
+        { "name": "Python", "visible": true },
+        { "name": "C++", "visible": true }
+      ]
+    },
+    {
+      "id": "frontend",
+      "title": "Frontend development",
+      "skills": [
+        { "name": "Web development", "visible": true }
+      ]
+    },
+    {
+      "id": "backend",
+      "title": "Backend development",
+      "skills": []
+    },
+    {
+      "id": "databases",
+      "title": "Databases",
+      "skills": []
+    },
+    {
+      "id": "baas",
+      "title": "Backend as a service",
+      "skills": []
+    },
+    {
+      "id": "other",
+      "title": "Other areas",
+      "skills": [
+        { "name": "Generative AI project work (in progress)", "visible": false }
+      ]
+    }
+  ]
+}

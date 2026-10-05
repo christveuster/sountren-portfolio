@@ -1,5 +1,6 @@
 ---
 import CRTWarp from '../components/CRTWarp.jsx';
+import skillData from '../data/skills.json';
 import '../styles/global.css';
 
 const projects = [
@@ -11,6 +12,13 @@ const projects = [
     href: 'https://github.com/christveuster/Mapperatorinator',
   },
 ];
+
+const skillCategories = skillData.categories
+  .map((category) => ({
+    ...category,
+    skills: category.skills.filter((skill) => skill.visible),
+  }))
+  .filter((category) => category.skills.length > 0);
 ---
 
 <!doctype html>
@@ -36,13 +44,14 @@ const projects = [
             <p class="masthead__meta">Christian Michael / Portfolio</p>
             <nav class="nav" aria-label="Main navigation">
               <a href="#work">Work</a>
+              <a href="#skills">Skills</a>
               <a href="#about">About</a>
               <a href="/links">Links</a>
             </nav>
           </div>
 
           <div class="hero__copy">
-            <p class="eyebrow">Computer Science student / class of ’27</p>
+            <p class="eyebrow">Computer Science student / class of ’26</p>
             <h1>Hello, I’m<br /><span>Sountren.</span></h1>
             <p class="hero__intro">I’m Christian Michael, a Computer Science student at Universitas Indraprasta PGRI. I work with web development, Python, and C++.</p>
             <div class="hero__actions">
@@ -75,32 +84,53 @@ const projects = [
         </div>
       </section>
 
+      <section class="section section--skills wrap" id="skills" aria-labelledby="skills-title">
+        <p class="section-label"><strong>02</strong><span>Skills</span><span>Current toolkit</span></p>
+        <div class="skills-heading">
+          <h2 class="section-title" id="skills-title">What I’m<br />working with.</h2>
+          <p class="skills-intro">A snapshot of the programming and web development areas I’ve worked with so far.</p>
+        </div>
+        <div class="skills-grid">
+          {skillCategories.map((category, categoryIndex) => (
+            <section class="skill-group" aria-labelledby={`skill-category-${category.id}`}>
+              <div class="skill-group__heading">
+                <span class="skill-group__number">{String(categoryIndex + 1).padStart(2, '0')}</span>
+                <h3 id={`skill-category-${category.id}`}>{category.title}</h3>
+              </div>
+              <ul class="skill-list">
+                {category.skills.map((skill) => <li>{skill.name}</li>)}
+              </ul>
+            </section>
+          ))}
+        </div>
+      </section>
+
       <section class="section section--about" id="about" aria-labelledby="about-title">
         <div class="wrap">
-          <p class="section-label"><strong>02</strong><span>About</span><span>A little context</span></p>
+          <p class="section-label"><strong>03</strong><span>About</span><span>A little context</span></p>
           <div class="about-grid">
             <h2 class="section-title" id="about-title">Computer Science<br />student. Curious<br />builder.</h2>
             <div class="about-copy">
-              <p>I’m studying Computer Science at Universitas Indraprasta PGRI as part of the class of ’27. My programming interests include web development, Python, and C++.</p>
-              <p>Outside code, I enjoy chess, learning languages, and attending IT events. I’m also exploring generative AI through Mapperatorinator, an in-progress osu! beatmap project.</p>
+              <p>I’m studying Computer Science at University of Indraprasta PGRI as part of the class of ’26. My programming interests include web development, Python, and C++.</p>
+              <p>Outside code, I enjoy chess, learning languages, and attending IT events. I’m also exploring generative AI through Mapperatorinator, an in-progress osu! beatmap project. And through other in-coming AI projects.</p>
             </div>
           </div>
         </div>
       </section>
 
       <section class="section wrap" aria-labelledby="experience-title">
-        <p class="section-label"><strong>03</strong><span>Education</span><span>Current studies</span></p>
+        <p class="section-label"><strong>04</strong><span>Education</span><span>Current studies</span></p>
         <h2 class="section-title" id="experience-title">Learning the<br />foundations.</h2>
         <div class="experience-list">
           <article class="experience">
-            <span class="experience__date">Class of ’27</span>
+            <span class="experience__date">Class of ’26</span>
             <div>
               <h3>Computer Science</h3>
               <p>Universitas Indraprasta PGRI</p>
             </div>
           </article>
           <article class="experience">
-            <span class="experience__date">Class of ’23</span>
+            <span class="experience__date">Class of ’22</span>
             <div>
               <h3>Science Track</h3>
               <p>SMAN 48, East Jakarta</p>
@@ -111,7 +141,7 @@ const projects = [
 
       <section class="section section--contact" id="contact" aria-labelledby="contact-title">
         <div class="wrap">
-            <p class="section-label"><strong>04</strong><span>Contact</span><span>Find me around the web</span></p>
+            <p class="section-label"><strong>05</strong><span>Contact</span><span>Find me around the web</span></p>
           <div class="contact-grid">
               <h2 class="section-title" id="contact-title">Say hello<br />or follow along.</h2>
             <div>
@@ -123,7 +153,7 @@ const projects = [
           </div>
           <footer class="site-footer">
             <p>Christian Michael / Sountren</p>
-            <p>Computer Science / Class of ’27</p>
+            <p>Computer Science / Class of ’26</p>
           </footer>
         </div>
       </section>
